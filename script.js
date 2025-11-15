@@ -17,15 +17,17 @@ function primitiveMultiply(a, b) {
 }
 
 function reliableMultiply(a, b) {
-  // Your code here.
-}
-
-function reliableMultiply (a, b) {
-  while (true) {
+    while (true) {
     try {
-      return primitiveMultiply (a, b);
-    } catch (e) {
-      if (! (e instanceof MultiplicatorUnitFailure)) 
+      return primitiveMultiply (a, b); // calls back to math.random to multiply the primitiveMultiply %20 percent of the time
+    } catch (error) {
+      if (! (error instanceof MultiplicatorUnitFailure)) { // throws error code 80% of the time this function is ran
+
+      } else {
+        throw error;
+      }
     }
   }
 }
+  // Your code here.
+console.log(reliableMultiply(8, 8));
